@@ -10,7 +10,7 @@ jobs:
       - name: Setup
         uses: actions/checkout@v2
       - name: Render full image
-        uses: vlegio/openscad-actions
+        uses: vlegio/openscad-actions@v2.0
         with:
           scad_file: assembled.scad
           output_file: assembled.png
