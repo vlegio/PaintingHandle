@@ -14,5 +14,5 @@ jobs:
         with:
           scad_file: assembled.scad
           output_file: assembled.stl
-          options: "-D q=100"
+          options: "-D q=10"
 

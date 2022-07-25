@@ -26,12 +26,12 @@ module handle(height, baseDia, topDia) {
 module base(thinckness, width, deepth) {
     difference() {
         translate([0,0,thinckness/2])
-        cube([width, deepth, thinckness], center=true);
+        cube([width, deepth*1.5, thinckness], center=true);
         handleConnector(thinckness*2+0.1);
         for (i=[-1,1]) {
             translate([i*width/2,0, thinckness/2])
             rotate([0,i*-45,0]){
-                cube([width, deepth+0.1, thinckness], center = true);
+                cube([width, deepth*1.5+0.1, thinckness], center = true);
             }
         }
     }
@@ -69,11 +69,12 @@ module retainer(thinckness, width, deepth) {
         translate([0,deepth/3-3,-0.1]){
             base(thinckness+0.1, width+0.1, deepth+0.1);
         }
-        startR = 14;
-        for (i=[0:2])
-        translate([0,(1.5-((i+1)/5))*(startR*(i+1)),thinckness+1+4*i]){
-            cylinder(h=thinckness*3,r = (startR*(i+1)));
+        for (i=[0:len(baseSizes)-1])
+        translate([0,baseSizes[i]/2+baseSizes[0]/2-i*4,thinckness+1+2*i]){
+            cylinder(h=thinckness*3,r = baseSizes[i]/2);
+            //%cylinder(h=thinckness*3,r = baseSizes[i]/2);
         }
     }
 }
 
+//%retainer(handleTopDia/2,    handleTopDia*2, handleHeight);

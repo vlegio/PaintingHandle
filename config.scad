@@ -1,6 +1,8 @@
-handleHeight = 85;
+handleHeight = 100;
 handleBaseDia = 45;
-handleTopDia = 15;
+handleTopDia = 18;
+
+baseSizes = [25,32,40,50];
 
 m = 0;
 mode = (m == 1) ? "handle":
