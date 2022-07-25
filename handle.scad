@@ -71,7 +71,7 @@ module retainer(thinckness, width, deepth) {
         }
         for (i=[0:len(baseSizes)-1])
         translate([0,baseSizes[i]/2+baseSizes[0]/2-i*4,thinckness+1+2*i]){
-            cylinder(h=thinckness*3,r = baseSizes[i]/2);
+            cylinder(h=2,r1 = baseSizes[i]/2+1, r2=baseSizes[i]/2);
             //%cylinder(h=thinckness*3,r = baseSizes[i]/2);
         }
     }
