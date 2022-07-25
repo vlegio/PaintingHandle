@@ -1,4 +1,4 @@
-name: Render image for README.md
+name: Render full stl
 on:
   push: 
     branches:
@@ -13,11 +13,6 @@ jobs:
         uses: vlegio/openscad-actions@v2.0
         with:
           scad_file: assembled.scad
-          output_file: assembled.png
-          options: "-D q=1000"
-      - name: Upload stl file as artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: assembled_image
-          path: assembled.png
+          output_file: assembled.stl
+          options: "-D q=100"
 
