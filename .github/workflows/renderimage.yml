@@ -1,0 +1,23 @@
+name: Render image for README.md
+on:
+  push: 
+    branches:
+      - master
+jobs:
+  full:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup
+        uses: actions/checkout@v2
+      - name: Render full image
+        uses: vlegio/openscad-actions
+        with:
+          scad_file: assembled.scad
+          output_file: assembled.png
+          options: "-D q=1000"
+      - name: Upload stl file as artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: assembled_image
+          path: assembled.png
+
