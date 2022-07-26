@@ -24,7 +24,7 @@ jobs:
           format: markdown
           disable_web_page_preview: true
           message: |
-            **Deploy status**: ✅
+            **Build status**: ✅
             **Project**: `${{github.repository}}`
             **Runs on**: https://github.com/${{github.repository}}/tree/${{github.sha}}
             **Branch**: `${{github.ref}}`
@@ -39,7 +39,7 @@ jobs:
           format: markdown
           disable_web_page_preview: true
           message: |
-            **Deploy status**: ❌
+            **Build status**: ❌
             **Project**: `${{github.repository}}`
             **Runs on**: https://github.com/${{github.repository}}/tree/${{github.sha}}
             **Branch**: `${{github.ref}}`
