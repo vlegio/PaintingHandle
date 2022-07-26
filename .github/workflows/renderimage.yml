@@ -15,4 +15,33 @@ jobs:
           scad_file: assembled.scad
           output_file: assembled.stl
           options: "-D q=10"
+      - name: Telegram Notify OK
+        if: ${{ success() }}
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_USER_ID }}
+          token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          format: markdown
+          disable_web_page_preview: true
+          message: |
+            **Deploy status**: ✅
+            **Project**: `${{github.repository}}`
+            **Runs on**: https://github.com/${{github.repository}}/tree/${{github.sha}}
+            **Branch**: `${{github.ref}}`
+            **Link**: https://vlegio.ru
+
+      - name: Telegram Notify NOK
+        if: ${{ failure() }}
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_USER_ID }}
+          token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          format: markdown
+          disable_web_page_preview: true
+          message: |
+            **Deploy status**: ❌
+            **Project**: `${{github.repository}}`
+            **Runs on**: https://github.com/${{github.repository}}/tree/${{github.sha}}
+            **Branch**: `${{github.ref}}`
+
 
